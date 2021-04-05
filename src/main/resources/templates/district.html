@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>District - Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Data District</h1>
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Nomor</td>
+                    <td>Kota/Kabupaten</td>
+                    <td>Nama Kota/Kabupaten</td>
+                    <td>Nama Provinsi</td>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr th:each="district : ${districts}">
+                    <td th:text="${district.districtId}"></td>
+                    <td th:text="${district.kab}"></td>
+                    <td th:text="${district.districtName}"></td>
+                    <td th:text="${district.provinceId.provinceName}"></td>
+<!--                    <td>
+                        <a th:href="@{/district/{id} (id = ${district.id})}">Edit</a>
+                        <a th:href="@{/district/delete/{id} (id = ${district.id})}">Delete</a>-->
+                    <!--</td>-->
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
