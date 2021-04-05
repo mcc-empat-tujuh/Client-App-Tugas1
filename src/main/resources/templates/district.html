@@ -32,7 +32,7 @@ and open the template in the editor.
                     <td th:text="${district.provinceId.provinceName}"></td>
                     <td>
                         <a th:href="@{/district/{id} (id = ${district.districtId})}">Edit</a>
-                        <!--<a th:href="@{/district/delete/{id} (id = ${district.id})}">Delete</a>-->
+                        <a th:href="@{/district/delete/{id} (id = ${district.id})}">Delete</a>
                     </td>
                 </tr>
             </tbody>

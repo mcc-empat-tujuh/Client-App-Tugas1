@@ -56,4 +56,9 @@ public class DistrictService {
                 .exchange(url, HttpMethod.POST, entity, 
                         District.class);
     }
+    
+    public void delete(Integer id) {
+        ResponseEntity<District> response = restTemplate
+                .exchange(url, HttpMethod.DELETE, null, District.class);
+    }
 }
