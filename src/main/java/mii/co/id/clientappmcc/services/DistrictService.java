@@ -58,7 +58,6 @@ public class DistrictService {
     }
     
     public void delete(Integer id) {
-//        restTemplate.delete(url+"/"+id);
         ResponseEntity<String> response = restTemplate
                 .exchange(url+"/"+id, HttpMethod.DELETE, null, 
                         new ParameterizedTypeReference<String>() {});
