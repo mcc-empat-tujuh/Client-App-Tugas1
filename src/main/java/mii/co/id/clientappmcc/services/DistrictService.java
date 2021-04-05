@@ -46,14 +46,14 @@ public class DistrictService {
     public void update(Integer id, District district) {
         HttpEntity entity = new HttpEntity(district);
         ResponseEntity<District> response = restTemplate
-                .exchange(url + "/" + id, HttpMethod.PATCH, entity, 
-                        new ParameterizedTypeReference<District>() {});
+                .exchange(url + "/" + id, HttpMethod.PUT, entity, 
+                        District.class);
     }
     
     public void insert(District district) {
         HttpEntity entity = new HttpEntity(district);
         ResponseEntity<District> response = restTemplate
                 .exchange(url, HttpMethod.POST, entity, 
-                        new ParameterizedTypeReference<District>() {});
+                        District.class);
     }
 }

@@ -43,12 +43,17 @@ public class DistrictController {
     @PostMapping("/update/{id}")
     public String update(@PathVariable("id") Integer id, @ModelAttribute("district") District district) {
         districtService.update(id, district);
-        return "redirect:/post";
+        return "redirect:/district";
     }
     
     @PostMapping("/insert")
     public String insert(@ModelAttribute("district") District district) {
         districtService.insert(district);
         return "redirect:/district";
+    }
+    
+    @GetMapping("/insert")
+    public String getForm() {
+        return "district-insert-form";
     }
 }

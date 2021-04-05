@@ -12,8 +12,11 @@ and open the template in the editor.
     </head>
     <body>
         <h1>District Insert Form</h1>
+        <!--<h1 th:text="${id} ? 'District Edit Form' : 'District Add Form'"></h1>-->
         
-        <form th:action="@{/district/insert }" method="post" th:object="${district}">
+        <form th:action=" @{/district/inserts}" method="post" th:object="${district}">
+            <label>Id</label>
+            <input type="number" th:field="*{districtId}"><br>
             <label>Kota/Kabupaten</label>
             <input type="text" th:field="*{kab}"><br>
             <label>Nama Kota/Kabupaten</label>
