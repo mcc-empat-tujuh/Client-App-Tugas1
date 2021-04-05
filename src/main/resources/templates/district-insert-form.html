@@ -15,50 +15,32 @@ and open the template in the editor.
         <div class="container">
             
             <h1 class="text-center mt-5 mb-5">District Insert Form</h1>
-            <!--<h1 th:text="${id} ? 'District Edit Form' : 'District Add Form'"></h1>-->
 
-            <form>
+            <form th:action=" @{/district/insert}" method="post" th:object="${district}">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">ID District</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1" >
+                    <input type="number" class="form-control" id="exampleFormControlInput1" th:field="*{districtId}">
                     <small class="text-warning">hanya diisi oleh angka</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Kota/Kab</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kota / kabupaten">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan kota / kabupaten" th:field="*{kab}">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Distrik</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="cth : Bandung">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="cth : Bandung" th:field="*{districtName}">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">ID Provinsi</label>
-                    <input type="number" class="form-control" id="exampleFormControlInput1">
+                    <input type="number" class="form-control" id="exampleFormControlInput1" th:field="*{provinceId.provinceId}">
                     <small class="text-warning">hanya diisi oleh angka</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Nama Provinsi</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jawa Barat">
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jawa Barat" th:field="*{provinceId.provinceName}">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
             </form>
-
-
-
-
-            <!--        <form th:action=" @{/district/insert}" method="post" th:object="${district}">
-                        <label>Id</label>
-                        <input type="number" th:field="*{districtId}"><br>
-                        <label>Kota/Kabupaten</label>
-                        <input type="text" th:field="*{kab}"><br>
-                        <label>Nama Kota/Kabupaten</label>
-                        <input type="text" th:field="*{districtName}"><br>
-                        <label>ID Provinsi</label>
-                        <input type="number" th:field="*{provinceId.provinceId}"><br>
-                        <label>Nama Provinsi</label>
-                        <input type="text" th:field="*{provinceId.provinceName}"><br>
-                        <button type="submit">Submit</button>
-                    </form>-->
         </div>
     </body>
 </html>
