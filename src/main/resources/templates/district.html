@@ -20,6 +20,7 @@ and open the template in the editor.
                     <td>Kota/Kabupaten</td>
                     <td>Nama Kota/Kabupaten</td>
                     <td>Nama Provinsi</td>
+                    <td>Aksi</td>
                 </tr>
             </thead>
             
@@ -29,12 +30,13 @@ and open the template in the editor.
                     <td th:text="${district.kab}"></td>
                     <td th:text="${district.districtName}"></td>
                     <td th:text="${district.provinceId.provinceName}"></td>
-<!--                    <td>
-                        <a th:href="@{/district/{id} (id = ${district.id})}">Edit</a>
-                        <a th:href="@{/district/delete/{id} (id = ${district.id})}">Delete</a>-->
-                    <!--</td>-->
+                    <td>
+                        <a th:href="@{/district/{id} (id = ${district.districtId})}">Edit</a>
+                        <!--<a th:href="@{/district/delete/{id} (id = ${district.id})}">Delete</a>-->
+                    </td>
                 </tr>
             </tbody>
         </table>
+        <a th:href="@{/district/insert-form}">Insert New District</a>
     </body>
 </html>

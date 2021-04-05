@@ -6,23 +6,20 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>District Insert Form</title>
+        <title>District Edit Form</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>District Insert Form</h1>
-        <!--<h1 th:text="${id} ? 'District Edit Form' : 'District Add Form'"></h1>-->
+        <h1>District Edit Form</h1>
         
-        <form th:action=" @{/district/insert}" method="post" th:object="${district}">
+        <form th:action="@{/district/update/{id} (id = ${district.districtId})}" method="post" th:object="${district}">
             <label>Id</label>
             <input type="number" th:field="*{districtId}"><br>
             <label>Kota/Kabupaten</label>
             <input type="text" th:field="*{kab}"><br>
             <label>Nama Kota/Kabupaten</label>
             <input type="text" th:field="*{districtName}"><br>
-            <label>ID Provinsi</label>
-            <input type="number" th:field="*{provinceId.provinceId}"><br>
             <label>Nama Provinsi</label>
             <input type="text" th:field="*{provinceId.provinceName}"><br>
             <button type="submit">Submit</button>

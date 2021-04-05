@@ -30,16 +30,15 @@ public class DistrictController {
     @GetMapping
     public String getAll(Model model) {
         model.addAttribute("districts", districtService.getAll());
-//        System.out.println(districtService.getById(1).getDistrictId());
         return "district";
     }
     
-//    @GetMapping("/{id}")
-//    public String getById(@PathVariable("id") Integer id, Model model) {
-//        model.addAttribute("post", postService.getById(id));
-//        return "post-edit-form";
-//    }
-//    
+    @GetMapping("/{id}")
+    public String getById(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("district", districtService.getById(id));
+        return "district-edit-form";
+    }
+    
     @PostMapping("/update/{id}")
     public String update(@PathVariable("id") Integer id, @ModelAttribute("district") District district) {
         districtService.update(id, district);
@@ -52,8 +51,15 @@ public class DistrictController {
         return "redirect:/district";
     }
     
-    @GetMapping("/insert")
-    public String getForm() {
+    @GetMapping("/insert-form")
+    public String getForm(Model model) {
+        District district = new District();
+        model.addAttribute("district", district);
         return "district-insert-form";
+    }
+    
+    @GetMapping("/delete/{id}")
+    public String delete(Model model) {
+        District dis
     }
 }
