@@ -13,13 +13,13 @@ and open the template in the editor.
     <body>
         <h1>District Insert Form</h1>
         
-        <form th:action="@{/district/update/{id} (id = ${district.id}) }" method="post" th:object="${district}">
+        <form th:action="@{/district/insert }" method="post" th:object="${district}">
             <label>Kota/Kabupaten</label>
-            <input type="String" th:field="*{kab}"><br>
+            <input type="text" th:field="*{kab}"><br>
             <label>Nama Kota/Kabupaten</label>
-            <input type="String" th:field="*{districtName}"><br>
+            <input type="text" th:field="*{districtName}"><br>
             <label>Nama Provinsi</label>
-            <input type="String" th:field="*{provinceId.provinceName}"><br>
+            <input type="text" th:field="*{provinceId.provinceName}"><br>
             <button type="submit">Submit</button>
         </form>
     </body>
