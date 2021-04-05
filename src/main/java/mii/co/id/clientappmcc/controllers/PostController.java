@@ -5,11 +5,15 @@
  */
 package mii.co.id.clientappmcc.controllers;
 
+import mii.co.id.clientappmcc.models.Post;
 import mii.co.id.clientappmcc.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -27,5 +31,17 @@ public class PostController {
     public String getAll(Model model) {
         model.addAttribute("posts", postService.getAll());
         return "post";
+    }
+    
+    @GetMapping("/{id}")
+    public String getById(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("post", postService.getById(id));
+        return "post-edit-form";
+    }
+    
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable("id") Integer id, @ModelAttribute("post") Post post) {
+        postService.update(id, post);
+        return "redirect:/post";
     }
 }
