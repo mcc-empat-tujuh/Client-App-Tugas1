@@ -58,8 +58,8 @@ public class DistrictController {
         return "district-insert-form";
     }
     
-    @GetMapping("/delete/{id}")
-    public String delete(Model model) {
-        District dis
-    }
+//    @GetMapping("/delete/{id}")
+//    public String delete(Model model) {
+//        District dis
+//    }
 }
