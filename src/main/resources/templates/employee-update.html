@@ -16,23 +16,37 @@ and open the template in the editor.
             <form th:action="@{/employee/update/{id} (id = ${employees.employeeId})}" method="post" th:object="${employees}"> 
             <!--<form action="#">--> 
             <!--<form>-->
-                <label>Employee Id</label>
-                <input type="number" th:field="*{employeeId}" readonly="readonly"><br>
-                <label>Employee Name</label>
-                <input type="text" th:field="*{employeeName}"><br>
-                <label>Birth Date</label>
-                <input type="date" class="form-control" id="birthDate" placeholder="Project start" th:field="*{birthDate}"><br>
-<!--                <label>Gender</label>
-                <input type="text" th:field="*{gender}"><br>-->
-                <label>Gender</label>
-                <input type="radio" id="laki-laki" name="gender" value="laki-laki">
-                <label for="laki-laki">Laki-laki</label>
-                <input type="radio" id="perempuan" name="gender" value="perempuan">
-                <label for="perempuan">Perempuan</label><br>
-                <label>Email</label>
-                <input type="text" th:field="*{email}"><br>
-                <button type="submit">Submit</button>
-                <button type="reset">Reset</button>
+            <table>
+                <tr>
+                    <td><label>Employee Id</label></td>
+                    <td><input type="number" th:field="*{employeeId}" readonly="readonly"><br></td>
+                </tr>
+                <tr>
+                    <td><label>Employee Name</label></td>
+                    <td><input type="text" th:field="*{employeeName}"><br></td>
+                </tr>
+                <tr>
+                    <td><label>Birth Date</label></td>
+                    <td><input type="date" class="form-control" id="birthDate" placeholder="Project start" th:field="*{birthDate}"><br></td>
+    <!--                <label>Gender</label>
+                    <input type="text" th:field="*{gender}"><br>-->
+                </tr>
+                <tr>
+                    <td><label>Gender</label></td>
+                    <td><input type="radio" id="laki-laki" name="gender" value="laki-laki">
+                    <label for="laki-laki">Laki-laki</label>
+                    <input type="radio" id="perempuan" name="gender" value="perempuan">
+                    <label for="perempuan">Perempuan</label><br></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input type="text" th:field="*{email}"><br></td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                    <td><button type="reset">Reset</button></td>
+                </tr>
+            </table>
             </form>
         </div>
     </body>
