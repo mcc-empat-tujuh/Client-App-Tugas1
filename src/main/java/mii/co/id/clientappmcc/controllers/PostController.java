@@ -29,8 +29,8 @@ public class PostController {
     
     @GetMapping
     public String getAll(Model model) {
-        model.addAttribute("posts", postService.getAll());
-        return "post";
+        model.addAttribute("posts", postService.getAll());//ambil dari model posts
+        return "post";//return ke html
     }
     
     @GetMapping("/{id}")
