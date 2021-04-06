@@ -16,7 +16,7 @@ and open the template in the editor.
             <form th:action="@{/employee/update/{id} (id = ${employees.employeeId})}" method="post" th:object="${employees}"> 
             <!--<form action="#">--> 
             <!--<form>-->
-            <table>
+            <table border="0" cellpadding="10">
                 <tr>
                     <td><label>Employee Id</label></td>
                     <td><input type="number" th:field="*{employeeId}" readonly="readonly"><br></td>
