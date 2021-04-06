@@ -37,6 +37,7 @@ public class AuthService {
 
     public boolean loginProcess(AuthRequest request) {
         boolean isLoginSuccess = false;
+        /* use try catch for error handling */
         try {
             HttpEntity entity = new HttpEntity(request);
             ResponseEntity<ResponseData<AuthResponse>> response = restTemplate
@@ -44,6 +45,7 @@ public class AuthService {
                             new ParameterizedTypeReference<ResponseData<AuthResponse>>() {
                     });
             
+            /* call method for set session */
             setAuthorization(request.getUsername(), request.getPassword(), 
                     response.getBody().getData().getAuthorities());
             
@@ -55,6 +57,7 @@ public class AuthService {
         return isLoginSuccess;
     }
     
+    /* Set spring security session */
     private void setAuthorization(String username, String password, List<String> authorities) {
         UsernamePasswordAuthenticationToken authToken = 
                 new UsernamePasswordAuthenticationToken(username, password, getListAthorities(authorities));
@@ -62,6 +65,7 @@ public class AuthService {
         SecurityContextHolder.getContext().setAuthentication(authToken);
     }
     
+    /* Set list of authothorities */
     private List<GrantedAuthority> getListAthorities(List<String> authorities) {
         return authorities.stream()
                 .map(auth -> new SimpleGrantedAuthority(auth))
