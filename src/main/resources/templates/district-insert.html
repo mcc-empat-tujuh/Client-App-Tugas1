@@ -15,9 +15,9 @@ and open the template in the editor.
         
 
         <form th:action="@{/district/add}" method="post" th:object="${district}">
-                        <label>Id District</label>
-                        <input type="number" th:field="*{districtId}"><br>
-            <label>District Id</label>
+<!--                        <label>Id District</label>
+                        <input type="number" th:field="*{districtId}"><br>-->
+<label><b>District Id</b></label>
             <input type="number" th:field="*{districtId}"><br>   
             <label>District Name</label>
             <input type="text" th:field="*{districtName}"><br>            
@@ -29,6 +29,8 @@ and open the template in the editor.
 
 
             <button type="submit">Submit</button>
+            
+        
         </form>
 <!--            <form th:action="" method="post" th:object="${district}">
                 <label>District Id</label>

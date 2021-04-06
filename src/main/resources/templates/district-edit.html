@@ -15,7 +15,7 @@ and open the template in the editor.
  
         <form th:action="@{/district/update/{id} (id = ${district.districtId})}" method="post" th:object="${district}">
             <label>Id District</label>
-            <input type="number" th:field="*{districtId}"><br>
+            <input type="number" th:field="*{districtId}" th:readonly="readonly"><br>
             <label>District Name</label>
             <input type="text" th:field="*{districtName}"><br>            
              <label>Kab</label>
