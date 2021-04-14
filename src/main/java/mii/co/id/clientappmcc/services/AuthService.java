@@ -35,7 +35,7 @@ public class AuthService {
 
     private final String URL = "http://localhost:8089/api/login";
 
-    public boolean loginProcess(AuthRequest request) {
+    public boolean loginProcess(AuthRequest request) {        
         boolean isLoginSuccess = false;
         /* use try catch for error handling */
         try {

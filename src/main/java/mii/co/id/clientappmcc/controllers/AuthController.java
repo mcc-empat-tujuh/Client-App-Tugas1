@@ -8,6 +8,8 @@ package mii.co.id.clientappmcc.controllers;
 import mii.co.id.clientappmcc.models.AuthRequest;
 import mii.co.id.clientappmcc.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,32 +22,40 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class AuthController {
-    
+
     @Autowired
     private AuthService authService;
-    
+
     @GetMapping("/login")
     public String loginPage(Model model) {
-        AuthRequest auth = new AuthRequest();
-        model.addAttribute("auth", auth);
-        return "login";
+        String redirectUrl = "";
+        AuthRequest authRequest = new AuthRequest();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        model.addAttribute("auth", authRequest);
+        if (auth.getName().equals("anonymousUser")) {
+            return "login";
+        }
+        
+        return "redirect:/dashboard";
+
     }
-    
+
     @PostMapping("/login")
     public String loginProcess(@ModelAttribute("auth") AuthRequest auth) {
         String redirectUrl = "";
-        
+
         if (authService.loginProcess(auth)) {
             redirectUrl = "redirect:/dashboard";
         } else {
             redirectUrl = "redirect:/login?error";
         }
-        
+
         return redirectUrl;
     }
-    
+
     @GetMapping("/dashboard")
-    public String dashborad() {
+    public String dashborad(Model model) {
         return "dashboard";
     }
 }

@@ -5,7 +5,9 @@
  */
 package mii.co.id.clientappmcc.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import mii.co.id.clientappmcc.config.RequestFormat;
 import mii.co.id.clientappmcc.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,7 +44,7 @@ public class PostService {
     }
     
     public void update(Integer id, Post post) {
-        HttpEntity entity = new HttpEntity(post);
+        HttpEntity entity = new HttpEntity(post, RequestFormat.createHeader());
         ResponseEntity<Post> res = restTemplate.exchange(url + "/" + id, HttpMethod.PUT, entity, Post.class);
     }
     
